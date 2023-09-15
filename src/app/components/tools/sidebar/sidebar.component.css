@@ -1,0 +1,11 @@
+li:hover {
+    background: #F0F0F0;
+}
+
+.sidebar {
+    width: 100%;
+}
+
+ul {
+    min-height: 100vh;
+}

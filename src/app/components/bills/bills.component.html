@@ -1,0 +1,38 @@
+<div class="row g-0">
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col-9 p-5 pt-4">
+        <div class="d-flex justify-content-between">
+            <h1 class="fw-light d-inline">Facturas</h1>
+            
+            <form class="w-75">
+                <input name="search" [(ngModel)]="search" (keyup)="filterList()" class="form-control me-2" type="search" placeholder="Filtrar por nombre">
+            </form>
+        </div>
+
+        <div class="productos mt-4">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of filtered">
+                    <th scope="row">{{ item.id }}</th>
+                    <td>{{ item.customer_name }}</td>
+                    <td>{{item.total}}</td>
+                    <td>{{ item.date | date }} </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+
+    </div>
+</div>

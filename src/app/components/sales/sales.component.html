@@ -1,0 +1,85 @@
+<div class="row g-0 bg-light">
+
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col-9 p-5 pt-4">
+        <h1 class="fw-light">Facturar venta</h1>
+
+        <div class="row">
+
+            <div class="col-5 mt-3">
+                <form class="mb-2">
+                    <input name="customer" [(ngModel)]="customer" class="form-control me-2" type="search" placeholder="Buscar producto">
+                </form>
+
+                <div class="billing shadow bg-white">
+                    <div *ngIf="bill.length > 0" class="p-2">
+                        <div *ngFor="let item of bill" class="d-flex justify-content-between p-2">
+                            <div class="item-left">
+                                <h5 class="fw-light">{{ item.name }} x {{ item.amount }}</h5>
+                                <p>{{ item.price | currency }}</p>
+                            </div>
+                            <div class="item-right">
+                                <img class="" [src]="item.img" alt="foto">
+                            </div>
+                        </div>
+
+                        <button class="btn bg-success text-light" (click)="openPopup()">Facturar</button>
+
+                        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Cliente: {{ customer }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="fw-light">Estos son tus productos: </p>
+                                        <div *ngFor="let item of bill" class="d-flex justify-content-between p-2">
+                                            <div class="item-left">
+                                                <h6 class="fw-light">{{ item.name }} x {{ item.amount }}</h6>
+                                                <p>{{ item.price | currency }}</p>
+                                            </div>
+                                            <div class="item-right">
+                                                <img class="" [src]="item.img" alt="foto">
+                                            </div>
+                                        </div>
+                                        <p class="lead">Total: {{ total | currency }}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-success">Generar factura</button>
+                                        <button type="button" class="btn btn-danger" (click)="closePopup()">Cancelar compra</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div *ngIf="bill.length == 0" class="p-2">
+                        <p>Selecciona los productos</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-7 mt-3">
+                <form>
+                    <input name="search" [(ngModel)]="search" class="form-control me-2" type="search" placeholder="Buscar producto" (keyup)="filterList()">
+                </form>
+                <div class="d-flex flex-wrap justify-content-evenly products shadow mt-3 bg-white">
+
+                    <div *ngFor="let item of filtered" class="product text-center shadow p-2 m-2" (click)="addToBill(item)">
+                        <img [src]="item.img" alt="foto">
+                        <h4>{{ item.name }}</h4>
+                        <p>{{ item.price | currency}}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

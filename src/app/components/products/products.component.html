@@ -1,0 +1,49 @@
+<div class="row g-0">
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
+    </div>
+    
+
+    <div class="col-9 p-5 pt-4">
+        <div class="d-flex">
+            <h1 class="fw-light d-inline me-3">Productos</h1>
+            <div>
+                <button name="search" class="add btn bg-main text-light ps-5 pe-5 me-4" (click)="openPopup()">Agregar</button>
+            </div>
+            
+            <form class="w-75">
+                <input name="search" [(ngModel)]="search" (keyup)="filterList()"  class="form-control me-2" type="search" placeholder="Filtrar por nombre">
+            </form>
+        </div>
+
+        <div class="productos mt-4">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of filtered" (click)="showEditModal(item)">
+                    <th>{{ item.id }}</th>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.price }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+        
+    </div>
+
+</div>
+
+<div>
+  <app-add-product-modal class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}" (close)="closePopup($event)"></app-add-product-modal>
+
+  <app-edit-product-modal class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleEdit}" (close)="hideEditModal($event)" [toEditProduct]="product"></app-edit-product-modal>
+</div>

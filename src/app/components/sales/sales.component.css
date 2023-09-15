@@ -1,0 +1,22 @@
+.billing {
+    min-width: 100%;
+    min-height: 300px;
+}
+
+.products {
+    width: 100%;
+    min-height: 300px;
+}
+
+.product {
+    width: 30%;
+    max-height: 150px;
+}
+
+.product:hover {
+    cursor: pointer;
+}
+
+img {
+    width: 40px;
+}
