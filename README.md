@@ -1,19 +1,20 @@
 # Smartbill
 
-Este projecto esta en la versión de Angular [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+Este proyecto esta en la versión de Angular [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
 
-Si tienen un Angular superior no deberia ser problema para correr.
+Si tienen un Angular superior no deberia ser problema para correr. Tampoco debería poner problema el Node.js.
 
 ## Run
 
-Recuerden que para correr angular deben tener, tanto Node.js, npm, y Angular instalados en el computador.
+Para correr Angular deben tener, tanto Node.js, npm, y Angular/CLI instalados en el computador.
 
-Una vez instalados, ingresan al archivo raiz y corren "npm install" en la consola para instalar todos los paquetes necesarios. 
+Una vez instalados, ingresan al archivo raiz de este proyecto y corren "npm install" en la consola para instalar todos los paquetes necesarios. 
 
 Una vez instalado todo, ingresan el comando "ng serve" para iniciar el servidor de Angular y esperan a que suba el servidor. Una vez arriba, el servidor estara abierto en la url http://localhost:4200
 
 ## URLs
 
+Login: http://localhost:4200
 Inventario: http://localhost:4200/productos
 Factura: http://localhost:4200/facturas
 Facturar venta: http://localhost:4200/ventas
