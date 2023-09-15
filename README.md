@@ -1,27 +1,24 @@
 # Smartbill
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+Este projecto esta en la versión de Angular [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
 
-## Development server
+Si tienen un Angular superior no deberia ser problema para correr.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Run
 
-## Code scaffolding
+Recuerden que para correr angular deben tener, tanto Node.js, npm, y Angular instalados en el computador.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Una vez instalados, ingresan al archivo raiz y corren "npm install" en la consola para instalar todos los paquetes necesarios. 
 
-## Build
+Una vez instalado todo, ingresan el comando "ng serve" para iniciar el servidor de Angular y esperan a que suba el servidor. Una vez arriba, el servidor estara abierto en la url http://localhost:4200
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## URLs
 
-## Running unit tests
+Inventario: http://localhost:4200/productos
+Factura: http://localhost:4200/facturas
+Facturar venta: http://localhost:4200/ventas
+Registrar: http://localhost:4200/register
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El register se realizará desde la misma página una vez se haya iniciado sesión para evitar registros de terceros. Como todavía no hemos implementado login, todavía no se hace la redirección. El cierre de sesi´pon tampoco funciona por el momento.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Si algo no les funciona o le quieren corregir algo, pregunten.
