@@ -9,24 +9,20 @@ export class ProductsService {
   constructor(public http: HttpClient) { }
 
   addProduct(product: any) {
-    return this.http.post('http://localhost:8080/products', product)
+    return this.http.post('http://localhost:8080/newProducts', product)
 
   }
 
   editProduct(product: any) {
-    return this.http.put('http://localhost:8080/products', product)
+    return this.http.put('http://localhost:8080/updateProduct', product)
   }
 
   getProduct() {
-    return this.http.get('http://localhost:8080/products')
+    return this.http.get('http://localhost:8080/Product')
   }
 
   outOfStockproduct(product: any) {
-    return this.http.put('http://localhost:8080/products', product)
-  }
-
-  deleteProductPermanenetly(product:any) {
-    return this.http.delete('http://localhost:8080/products', product)
+    return this.http.put('http://localhost:8080/updateProduct', product)
   }
 
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BillService } from 'src/app/services/bill.service';
 
 @Component({
   selector: 'app-bills',
@@ -30,6 +31,10 @@ export class BillsComponent {
     });
 
     console.log(this.filtered)
+  }
+
+  createBill() {
+    
   }
 
 }
