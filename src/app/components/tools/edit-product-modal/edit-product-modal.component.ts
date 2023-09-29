@@ -21,13 +21,9 @@ export class EditProductModalComponent {
 
 
   editProduct() {
-    this.productService.addProduct(this.product).subscribe((res:any) => {
-        if(res) {
-          this.error = false
-          console.log(res)
-        } else {
-          this.error = true
-        }
+    this.productService.editProduct(this.product).subscribe((res:any) => {
+        console.log(res)
+        this.closeModal()
     })
     
   }
@@ -37,6 +33,8 @@ export class EditProductModalComponent {
   }
 
   deleteProduct() {
+    this.product.productStock = 0
+    console.log(this.product)
     this.productService.outOfStockproduct(this.product).subscribe((res:any) => {
       console.log(res)
     })

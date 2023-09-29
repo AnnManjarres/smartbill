@@ -13,6 +13,7 @@ import { BillsComponent } from './components/bills/bills.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { AddProductModalComponent } from './components/tools/add-product-modal/add-product-modal.component';
 import { EditProductModalComponent } from './components/tools/edit-product-modal/edit-product-modal.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditProductModalComponent } from './components/tools/edit-product-modal
     BillsComponent,
     SalesComponent,
     AddProductModalComponent,
-    EditProductModalComponent
+    EditProductModalComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,

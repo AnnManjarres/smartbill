@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BillsComponent } from './components/bills/bills.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: "productos", component: ProductsComponent},
   {path: "facturas", component: BillsComponent},
   {path: "ventas", component: SalesComponent},
+  {path: "empleados", component: EmployeeComponent},
 
 ];
 

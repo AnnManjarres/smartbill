@@ -2,12 +2,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 export interface IProduct {
-  id: number | null
-  name: string
-  price: number | null
-  amount: number | null
+  productName: string
+  productPrice: number | null
+  productAmount: number | null
+  productStock: number | null
 }
 
 @Component({
@@ -20,13 +21,13 @@ export class AddProductModalComponent {
   @Output() close = new EventEmitter<string>();
   error?: boolean
   product: IProduct = {
-    id: null,
-    name: '',
-    price: null,
-    amount: null
+    productName: '',
+    productPrice: null,
+    productAmount: null,
+    productStock: 1
   }
 
-  constructor(public productService: ProductsService) { }
+  constructor(public productService: ProductsService, public router: Router) { }
 
 
 
@@ -42,6 +43,7 @@ export class AddProductModalComponent {
         if (res) {
           this.error = false
           console.log(res)
+          this.router.navigate(['/ventas'])
         }
       })
 

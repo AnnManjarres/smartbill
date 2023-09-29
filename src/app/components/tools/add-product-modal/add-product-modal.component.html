@@ -6,10 +6,9 @@
             </div>
             <div class="modal-body">
                 <form class="form-group">
-                    <input name="id" [(ngModel)]="product.id" class="form-control mb-2" type="text" placeholder="Código">
-                    <input name="name" [(ngModel)]="product.name" class="form-control mb-2" type="text" placeholder="Nombre del producto">
-                    <input name="price" [(ngModel)]="product.price" class="form-control mb-2" type="number" placeholder="Precio $$$">
-                    <input name="amoujt" [(ngModel)]="product.amount" class="form-control" type="number" placeholder="Cantidad en inventario">
+                    <input name="name" [(ngModel)]="product.productName" class="form-control mb-2" type="text" placeholder="Nombre del producto">
+                    <input name="price" [(ngModel)]="product.productPrice" class="form-control mb-2" type="number" placeholder="Precio $$$">
+                    <input name="amoujt" [(ngModel)]="product.productAmount" class="form-control" type="number" placeholder="Cantidad en inventario">
                     <p class="text-danger" *ngIf="error">No se pudo agregar el producto.</p>
         
 

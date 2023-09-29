@@ -28,10 +28,10 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of filtered" (click)="showEditModal(item)">
-                    <th>{{ item.id }}</th>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.price }}</td>
+                    <th>{{ item.productId }}</th>
+                    <td>{{ item.productName }}</td>
+                    <td *ngIf="item.productStock > 0">{{ item.productAmount }}</td> <td class="text-white p-1 bg-danger" *ngIf="item.productStock == 0">No disponible</td>
+                    <td>{{ item.productPrice }}</td>
                   </tr>
                 </tbody>
               </table>

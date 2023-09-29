@@ -8,33 +8,40 @@ import { BillService } from 'src/app/services/bill.service';
 })
 export class BillsComponent {
 
-  data = [
-    {"id": 1, "customer_name": "Juan Torres", "total": 340000, "date": "2023-05-04"},
-    {"id": 2, "customer_name": "Juana Lopez", "total": 400000, "date": "2023-05-04"},
-    {"id": 3, "customer_name": "Andres Castillo", "total": 340000, "date": "2023-07-21"},
-    {"id": 4, "customer_name": "Claudia Martinez", "total": 1400000, "date": "2023-05-04"}
-  ]
-  filtered:any
+  data:any= []
+  displayStyle = "none"
+  bill:any = {}
   search:string | any
 
-  constructor() {
-    this.filtered = this.data
+  constructor(public billService: BillService) {
+    this.bringBills()
+    
   }
 
-  filterList() {
-    this.filtered = []
-    
-    this.data.forEach(item => {
-      if(item.customer_name.toLowerCase().includes(this.search)) {
-        this.filtered.push(item)
-      }
-    });
+  bringBills() {
+    this.billService.getBills().subscribe((res:any) => {
+      this.data = res
+      console.log(res)
+    })
 
-    console.log(this.filtered)
   }
 
-  createBill() {
-    
+  showPopup(item:any) {
+    this.bill = item
+    console.log("Hellloooooo")
+    this.displayStyle = "block";
+
+  }
+  
+  closePopup() {
+    this.displayStyle = "none"
+  }
+
+  deleteBill() {
+    this.billService.dropBill(this.bill.bullId).subscribe((res:any) => {
+      window.location.href = "http://localhost:4200/facturas"
+    })
+
   }
 
 }

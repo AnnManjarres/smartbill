@@ -7,9 +7,9 @@
             <div class="modal-body">
                 <form class="form-group">
                     <h5 class="text-bold"> Código: {{ product.id }}</h5>
-                    <input class="form-control mb-2" type="text" placeholder="Nombre del producto" [value]="product.name">
-                    <input class="form-control mb-2" type="number" placeholder="Precio $$$" [value]="product.price">
-                    <input class="form-control" type="number" placeholder="Cantidad en inventario" [value]="product.amount">
+                    <input class="form-control mb-2" type="text" placeholder="Nombre del producto" name="name" [(ngModel)]="product.productName">
+                    <input class="form-control mb-2" type="number" placeholder="Precio $$$" name="price" [(ngModel)]="product.productPrice">
+                    <input class="form-control" type="number" placeholder="Cantidad en inventario" name="amount" [(ngModel)]="product.productAmount">
         
                         
                     
@@ -17,9 +17,9 @@
                 
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" (click)="editProduct()">Agregar</button>
+                <button type="submit" class="btn btn-success" (click)="editProduct()">Editar</button>
                 <button type="button" class="btn btn-warning" (click)="closeModal()">Cancelar</button>
-                <button type="submit" class="btn btn-danger" (click)="editProduct()">Eliminar</button>
+                <button type="submit" class="btn btn-danger" (click)="deleteProduct()">Eliminar</button>
             </div>
         </div>
     </div>

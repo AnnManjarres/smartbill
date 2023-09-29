@@ -2,9 +2,14 @@
     <div class="w-50 text-center left">
         <h3>Inicio de sesion</h3>
         <form class="form-group w-75 ms-auto me-auto p-5">
-            <input class="form-control mb-2 border border-warning rounded-pill" type="text" placeholder="Usuario">
-            <input class="form-control mb-5 border border-warning rounded-pill" type="text" placeholder="Password">
-            <button class="btn bg-main text-light w-100 rounded-pill">Iniciar sesion</button>
+            <input name="username" [(ngModel)]="data.username" type="text" class="form-control mb-2 border border-warning rounded-pill" type="text" placeholder="Usuario">
+            <input type="password" name="password" [(ngModel)]="data.password" class="form-control mb-4 border border-warning rounded-pill" placeholder="Password">
+            <div *ngIf="errors.length > 0"class="">
+                <p *ngFor="let item of errors" class="text-white p-2 bg-danger">{{ item }}</p>
+            </div>
+            
+            <button class="btn bg-main text-light w-100 rounded-pill" (click)="newLogin()">Iniciar sesion</button>
+            
         </form>
     </div>
     <div class="w-50 bg-main d-flex">

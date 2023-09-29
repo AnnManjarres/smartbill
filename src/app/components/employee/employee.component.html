@@ -1,0 +1,80 @@
+<div class="row g-0">
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="col-9 p-5 pt-4">
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Empleados</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-group">
+                            <input name="name" [(ngModel)]="employee.fullname" class="form-control mb-2" type="text" placeholder="Nombre">
+                            <input name="username" [(ngModel)]="employee.username" class="form-control mb-2" type="text" placeholder="Usuario">
+                            <input name="email" [(ngModel)]="employee.email" class="form-control mb-2" type="email" placeholder="Email">
+                            <input name="password" [(ngModel)]="employee.password" class="form-control mb-2" type="password" placeholder="Password">
+                            <input name="repass" [(ngModel)]="repass" class="form-control mb-2" type="password" placeholder="Confirmar password">
+                            <div *ngIf="errors.length > 0">
+                                <p *ngFor="let item of errors" class="text-danger">{{ item }}</p>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" (click)="createEmployee()">Agregar</button>
+                        <button type="submit" class="btn btn-warning" (click)="closePopup()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <h1 class="fw-light d-inline me-3">Nuevo empleado</h1>
+            <button name="search" class="add btn bg-main text-light ps-5 pe-5 me-4" (click)="openPopup()">Agregar</button>
+        </div>
+
+        <div class="card mt-2" *ngFor="let item of data" (click)="openEdit(item)">
+            <div class="card-body">
+                <h5>{{ item.fullname }} - Id: {{ item.employeeId }}</h5>
+                <p class="lead">{{ item.email }}</p>
+                <p class="lead">{{ item.username }}</p>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayEdit}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Empleados</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-group">
+                    <input name="name" [(ngModel)]="employee.fullname" class="form-control mb-2" type="text" placeholder="Nombre">
+                    <input name="username" [(ngModel)]="employee.username" class="form-control mb-2" type="text" placeholder="Usuario">
+                    <input name="email" [(ngModel)]="employee.email" class="form-control mb-2" type="email" placeholder="Email">
+                    <input name="password" [(ngModel)]="employee.password" class="form-control mb-2" type="password" placeholder="Password">
+                    <input name="repass" [(ngModel)]="repass" class="form-control mb-2" type="password" placeholder="Confirmar password">
+                    <div *ngIf="errors.length > 0">
+                        <p *ngFor="let item of errors" class="text-danger">{{ item }}</p>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" (click)="editEmployee()">Editar</button>
+                <button class="btn btn-warning" (click)="closeEdit()">Cancelar</button>
+                <button class="btn btn-danger" (click)="deleteEmployee()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

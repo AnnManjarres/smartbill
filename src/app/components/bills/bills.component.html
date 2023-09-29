@@ -7,9 +7,7 @@
         <div class="d-flex justify-content-between">
             <h1 class="fw-light d-inline">Facturas</h1>
             
-            <form class="w-75">
-                <input name="search" [(ngModel)]="search" (keyup)="filterList()" class="form-control me-2" type="search" placeholder="Filtrar por nombre">
-            </form>
+            
         </div>
 
         <div class="productos mt-4">
@@ -23,16 +21,32 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of filtered">
-                    <th scope="row">{{ item.id }}</th>
-                    <td>{{ item.customer_name }}</td>
-                    <td>{{item.total}}</td>
-                    <td>{{ item.date | date }} </td>
+                  <tr *ngFor="let item of data" (click)="showPopup(item)">
+                    <th scope="row">{{ item.bullId }}</th>
+                    <td>{{ item.billCustomerName }}</td>
+                    <td>{{item.billTotal}}</td>
+                    <td>{{ item.billDate | date }} </td>
                   </tr>
                 </tbody>
               </table>
         </div>
-
-
     </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Eliminar factura</h4>
+          </div>
+          <div class="modal-body">
+            <div>Desea eliminar la factura a nombre de {{ bill.billCustomerName }}?</div>
+             
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" (click)="deleteBill()">Eliminar</button>
+            <button class="btn btn-warning" (click)="closePopup()">Cancelar</button>
+          </div>
+      </div>
+  </div>
 </div>

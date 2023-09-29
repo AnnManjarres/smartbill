@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -12,15 +13,11 @@ export class ProductsComponent {
   displayStyleEdit = "none"
   filtered:any
   search:string | any = ""
-  data = [
-    {"id": 1, "name": "Coca cola", "amount": 10, "price": 3400 },
-    {"id": 2, "name": "Coca cola zero", "amount": 5, "price": 3800 },
-    {"id": 3, "name": "Redbull", "amount": 20, "price": 6400 },
-    {"id": 4, "name": "Agua", "amount": 10, "price": 3000 }
-  ]
+  data : any = []
 
 
-  constructor() {
+  constructor(public productService: ProductsService) {
+    this.bringProducts()
     this.filtered = this.data
 
   }
@@ -28,12 +25,14 @@ export class ProductsComponent {
 
   filterList() {
     this.filtered = []
+    if(this.data.length > 0) {
+      this.data.forEach((item:any)=> {
+        if(item.name.toLowerCase().includes(this.search)) {
+          this.filtered.push(item)
+        }
+      });
+    }
     
-    this.data.forEach(item => {
-      if(item.name.toLowerCase().includes(this.search)) {
-        this.filtered.push(item)
-      }
-    });
   }
 
   openPopup() {
@@ -55,4 +54,15 @@ export class ProductsComponent {
     this.displayStyleEdit = e
   }
 
+
+
+
+
+
+  bringProducts() {
+    this.productService.getProduct().subscribe((res:any) => {
+      console.log(res)
+      this.filtered = res
+    })
+  }
 }
